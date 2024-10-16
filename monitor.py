@@ -43,10 +43,20 @@ def check_for_changes(url):
             smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
 
             subject = 'CHANGES DETECTED'
-            body = 'CHECK COLLEGEBOARD NOW TO BOOK SAT: https://tinyurl.com/3wa6xb82'#make it so that the email is more detailed
+            body = '''WE HAVE DETECTED CHANGES ON THE SAT SITE.
+
+The latest updates have been made to the SAT dates and deadlines. It is important to check the CollegeBoard website as soon as possible to secure your preferred SAT test date.
+
+Follow this link to review the updated information and book your SAT: https://tinyurl.com/3wa6xb82
+
+We recommend checking immediately to avoid missing out on available test dates.
+
+Best regards,
+SAT Checker'''
+            
             msg = f'Subject: {subject}\n\n{body}'
             
-            for i in range(15):
+            for i in range(8):
                 smtp.sendmail(EMAIL_ADDRESS, RECIEVER_EMAIL_ADDRESS, msg)
                 time.sleep(1)
 
@@ -59,11 +69,14 @@ def check_for_changes(url):
             smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
 
             subject = 'No Updates on SAT Site'
-            body = "Hello,\n\n" \
-                    "We checked the SAT dates and deadlines page, and there have been no updates at this time.\n\n" \
-                    "You can check back later for new updates\n\n" \
-                    "Best regards,\nSAT Checker"
-            #make it so that the email is more detailed
+            body = '''Hello,
+
+We checked the SAT dates and deadlines page, and there have been no updates at this time.
+
+You can check back later for new updates
+            
+Best regards,
+SAT Checker'''
            
             msg = f'Subject: {subject}\n\n{body}'
             
